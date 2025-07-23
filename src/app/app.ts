@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+// src/app/app.component.ts
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
+  standalone: true,
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  imports: [RouterModule],
+  template: `
+    <h1>Simple Math Router App</h1>
+    <nav>
+      <a routerLink="/sum">Sum</a> |
+      <a routerLink="/product">Product</a>
+    </nav>
+    <router-outlet></router-outlet>
+  `,
 })
-export class App {
-  protected readonly title = signal('calc-routing-app');
-}
+export class AppComponent {}
